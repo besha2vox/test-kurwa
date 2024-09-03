@@ -1,9 +1,6 @@
 name: Notify Discord on Stage Push/Merge
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types: [closed]
 
@@ -24,5 +21,5 @@ jobs:
           echo "Sending message to Discord..."
 
           curl -H "Content-Type: application/json" \
-               -d "{\"username\": \"YourName\", \"content\": \"$MESSAGE\"}" \
+               -d "{\"username\": \"Git\", \"content\": \"$MESSAGE\ \n Проводиться редеплой, сайт має запрацювати протягом 2-5 ххвлин"}" \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
