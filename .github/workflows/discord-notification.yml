@@ -3,10 +3,10 @@ name: Notify Discord on Stage Push/Merge
 on:
   push:
     branches:
-      - stage
+      - main
   pull_request:
     branches:
-      - stage
+      - main
 
 jobs:
   notify-discord:
