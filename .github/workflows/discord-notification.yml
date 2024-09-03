@@ -16,10 +16,10 @@ jobs:
           SOURCE_BRANCH=${{ github.event.pull_request.head.ref }}
           TARGET_BRANCH=${{ github.event.pull_request.base.ref }}
 
-          MESSAGE="Pull request from \`${SOURCE_BRANCH}\` merged into \`${TARGET_BRANCH}\` by ${PR_AUTHOR}."
+          MESSAGE="Pull request from \`${SOURCE_BRANCH}\` merged into \`${TARGET_BRANCH}\` by ${PR_AUTHOR}.\nПроводиться редеплой, сайт має запрацювати протягом 2-5 хвилин."
 
           echo "Sending message to Discord..."
 
           curl -H "Content-Type: application/json" \
-               -d "{\"username\": \"Git\", \"content\": \"$MESSAGE\ \n Проводиться редеплой, сайт має запрацювати протягом 2-5 ххвлин"}" \
+               -d "{\"username\": \"Git\", \"content\": \"$MESSAGE\"}" \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
