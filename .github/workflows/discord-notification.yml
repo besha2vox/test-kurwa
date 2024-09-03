@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+    types: [closed]
 
 jobs:
   notify-discord:
@@ -17,5 +18,5 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           curl -H "Content-Type: application/json" \
-               -d "{\"username\": \"GitHub\", \"content\": \".\"}" \
+               -d "{\"username\": \"GitHub\", \"content\": \"kurwa.\"}" \
                $DISCORD_WEBHOOK_URL
