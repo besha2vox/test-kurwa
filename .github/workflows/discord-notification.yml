@@ -17,5 +17,5 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           curl -H "Content-Type: application/json" \
-               -d "{\"username\": \"YourName\", \"content\": \"A new commit or merge has been pushed to the stage branch.\"}" \
+               -d "{\"username\": \"GitHub\", \"content\": \".\"}" \
                $DISCORD_WEBHOOK_URL
