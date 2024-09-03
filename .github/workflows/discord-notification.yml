@@ -1,0 +1,21 @@
+name: Notify Discord on Stage Push/Merge
+
+on:
+  push:
+    branches:
+      - stage
+  pull_request:
+    branches:
+      - stage
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Notification
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d "{\"username\": \"YourName\", \"content\": \"A new commit or merge has been pushed to the stage branch.\"}" \
+               $DISCORD_WEBHOOK_URL
